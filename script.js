@@ -8,27 +8,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function validateForm() {
             // Retrieve User Inputs by its respective ID: username, email, and password.
-            const usernameInput = getElementById("username").value.trim()
-            const emailInput = getElementById("email").value.trim()
-            const passwordInput = getElementById("password").value.trim()
-    
+            const usernameInput = getElementById("username")
+            const emailInput = getElementById("email")
+            const passwordInput = getElementById("password")
+            
+            const username = usernameInput.value.trim()
+            const email = emailInput.value.trim()
+            const password = passwordInput.value.trim()
+
             let isValid = true
             let messages = []
     
             // Username Validation:
-            if (usernameInput.length < 3){
+            if (username.length < 3){
                 isValid = false
                 messages.push("Your Username lenght must be more than 3 characters")
             }
     
             // Email Validation: must have character "@" and "."
-            if (!(emailInput.includes("@") && emailInput.includes("."))) {
+            if (!(email.includes("@") && email.includes("."))) {
                 isValid = false
                 messages.push("Enter a valid Email..") 
             }
             
             // Password Validation: must be more than 8 characters
-            if (passwordInput.length < 8) {
+            if (password.length < 8) {
                 isValid = false
                 messages.push("Password should be longer than 8 characters") 
             }
