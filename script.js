@@ -2,15 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("registration-form")
     const feedbackDiv = document.getElementById("form-feedback")
 
-    form.addEventListener("submit", () => {
+    form.addEventListener("submit", (event) => {
         event.preventDefault()
 
 
         function validateForm() {
             // Retrieve User Inputs by its respective ID: username, email, and password.
-            const usernameInput = getElementById("username")
-            const emailInput = getElementById("email")
-            const passwordInput = getElementById("password")
+            const usernameInput = document.getElementById("username")
+            const emailInput = document.getElementById("email")
+            const passwordInput = document.getElementById("password")
             
             const username = usernameInput.value.trim()
             const email = emailInput.value.trim()
@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if(isValid) {
                 feedbackDiv.textContent = "Registration successful!"
                 feedbackDiv.style.color = "#28a745"
+                console.log("OK OK OK OK OK ")
             } else {
                 feedbackDiv.innerHTML = messages.join("<br>")
                 feedbackDiv.style.color = "#dc3545"
