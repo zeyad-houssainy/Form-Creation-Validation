@@ -12,7 +12,6 @@ async function fetchUserData() {
             throw new Error(`HTTP error! status: ${response.status}`)
         }
         const users = await response.json()
-        console.log(users)
 
         // clear loading div
         dataContainer.innerHTML = ''
@@ -21,8 +20,8 @@ async function fetchUserData() {
             const listItem = document.createElement("li")
             listItem.textContent = user.name
             userList.appendChild(listItem)
+            dataContainer.appendChild(userList)
         });
-
     } catch(error) {
         dataContainer.textContent = "Failed to load user data"
         console.error(error)
@@ -30,4 +29,4 @@ async function fetchUserData() {
 }
 
 // calling the function 
-fetchUserData()
+document.addEventListener("DOMContentLoaded", fetchUserData);
