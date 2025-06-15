@@ -14,6 +14,15 @@ async function fetchUserData() {
         const users = await response.json()
         console.log(users)
 
+        // clear loading div
+        dataContainer.innerHTML = ''
+        const userList = document.createElement("ul")
+        users.forEach(user => { 
+            const listItem = document.createElement("li")
+            listItem.textContent = user.name
+            userList.appendChild(listItem)
+        });
+
     } catch(error) {
         console.error(error)
     }
