@@ -24,6 +24,7 @@ async function fetchUserData() {
         });
 
     } catch(error) {
+        dataContainer.textContent = "Failed to load user data"
         console.error(error)
     }
 }
